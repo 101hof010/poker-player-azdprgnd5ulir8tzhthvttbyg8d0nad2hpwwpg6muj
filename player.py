@@ -19,9 +19,13 @@ class Player:
                 cards.append(card)
             for card in game_state['community_cards']:
                 cards.append(card)
+            if game_state['community_cards'] == []:
+                pre_flop = True
+            else:
+                pre_flop = False
             max_amount = self.check_cards(cards) * 10
             #if max_amount > current_buy_in - players[index]['bet'] + minimum_raise :
-            if self.check_cards(cards) >= 1:
+            if self.check_cards(cards) >= 1 or pre_flop:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
                     sys.stderr.write("\n\n### We can set " + str(current_buy_in - players[0]['bet'] + minimum_raise) + "\n\n")
@@ -79,7 +83,7 @@ class Player:
             if amount[rank] > number:
                 number = amount[rank]
         if number == 1:
-            nscore = 1
+            nscore = 0
         if number == 2:
             nscore = 10
         elif number == 3:
