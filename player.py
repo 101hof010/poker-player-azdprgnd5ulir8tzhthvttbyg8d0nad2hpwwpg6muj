@@ -1,5 +1,3 @@
-import sys
-
 class Player:
     VERSION = "Default Python folding player"
 
@@ -19,4 +17,3 @@ class Player:
 
     def showdown(self, game_state):
         pass
-
