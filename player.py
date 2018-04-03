@@ -41,7 +41,7 @@ class Player:
             else:
                 sys.stderr.write("Not in Pre-Flop.")
             sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
-            score = check_cards(cards)
+            score = self.check_cards(cards)
             oscore = struct['score']
             sys.stderr.write("\n\n### Old Score: " + str(oscore) + " New Score: " + str(score))
             if oscore < score:
