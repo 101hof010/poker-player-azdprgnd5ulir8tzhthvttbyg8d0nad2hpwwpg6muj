@@ -4,6 +4,7 @@ class Player:
 
     def betRequest(self, game_state):
         sys.stderr.write("\n\n### Doing a turn.\n\n")
+        sys.stderr.write("\n\nData: " + str(game_state) + "\n\n")
         try:
             current_buy_in = game_state['current_buy_in']
             players = game_state['players']
@@ -21,8 +22,10 @@ class Player:
                 return 0
         except Exception as e:
             sys.stderr.write("\n\n### There was a Problem: " + str(e) + "\n\n")
-            sys.stderr.write("\n\nData: " + str(game_state) + "\n\n")
-        return 123
+            return 123
 
     def showdown(self, game_state):
+        pass
+
+    def check_cards(card1, card2, cards):
         pass
