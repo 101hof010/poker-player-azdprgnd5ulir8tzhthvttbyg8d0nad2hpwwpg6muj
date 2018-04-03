@@ -113,18 +113,16 @@ class Player:
         # Check for Straight
         tmp = []
         for card in cards:
-            sys.stderr.write("\n\n### Card: " + str(card) + "\n\n")
-            sys.stderr.write("\n\n### Appending: " + str(card % 100) + "\n\n")
             tmp.append(card % 100)
         tmp.sort()
         temp = tmp[0]
-        sys.stderr.write("\n\n### tmp[0] = " + str(tmp[0]) + "\n\n")
-        sys.stderr.write("\n\n### tmp = " + str(tmp) + "\n\n")
         try:
             for i in range(1, 5):
                 if tmp[i] == temp + 1:
                     sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
                     temp += 1
+                    if temp == 15:
+                        temp = 2
                 else:
                     sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
                     temp = -1
@@ -165,12 +163,61 @@ class Player:
             else:
                 fh = False
         if fh:
-            sys.stderr.write("\n\n### Flush \n\n")
+            sys.stderr.write("\n\n### Full House \n\n")
             nscore = 60
         if nscore > score:
             score = nscore
 
         # Straight Flush
+        tmp = []
+        for card in cards:
+            tmp.append(card % 100)
+        tmp.sort()
+        temp = tmp[0]
+        suit = cards[0]//100
+        try:
+            for i in range(1, 5):
+                if tmp[i] == temp + 1 and cards[i] // 100 == suit:
+                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
+                    temp += 1
+                    if temp == 15:
+                        temp = 2
+                else:
+                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
+                    temp = -1
+        except:
+            temp = -1
+        if temp != -1:
+            sys.stderr.write("\n\n### Straight Flush\n\n")
+            nscore = 90
+        if nscore > score:
+            score = nscore
+
+        # Royal Flush
+        tmp = []
+        for card in cards:
+            tmp.append(card % 100)
+        tmp.sort()
+        temp = 9
+        suit = cards[0]//100
+        try:
+            for i in range(0, 5):
+                if tmp[i] == temp + 1 and cards[i] // 100 == suit:
+                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
+                    temp += 1
+                    if temp == 15:
+                        temp = 2
+                else:
+                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
+                    temp = -1
+        except:
+            temp = -1
+        if temp != -1:
+            sys.stderr.write("\n\n### Straight Flush\n\n")
+            nscore = 100
+        if nscore > score:
+            score = nscore
+
 
         #if cards[0]//100 == cards[1] // 100:
         #    # same color
