@@ -107,7 +107,9 @@ class Player:
         # Check for Straight
         tmp = []
         for card in cards:
-            tmp.append(card // 100)
+            sys.stderr.write("\n\n### Card: " + str(card) + "\n\n")
+            sys.stderr.write("\n\n### Appending: " + str(card % 100) + "\n\n")
+            tmp.append(card % 100)
         tmp.sort()
         temp = tmp[0]
         sys.stderr.write("\n\n### tmp[0] = " + str(tmp[0]) + "\n\n")
