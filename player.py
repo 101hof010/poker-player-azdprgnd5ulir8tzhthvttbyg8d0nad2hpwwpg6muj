@@ -1,4 +1,5 @@
 import sys
+import json
 import random
 import time
 import os
@@ -23,8 +24,11 @@ class Player:
             #return random.randint(0, stack)
             #if random.randint(0, 6) == 6:
             #    return stack
-            with open("foo", "a") as f:
-                f.write("Test01")
+            try:
+                with open("foo", "r") as f:
+                    struct = json.loads(f.read())
+            except:
+                struct = {'score':0}
             sys.stderr.write("cat foo " + str(os.system("cat foo")))
             cards = []
             for card in players[index]['hole_cards']:
@@ -37,7 +41,18 @@ class Player:
             else:
                 sys.stderr.write("Not in Pre-Flop.")
             sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
-            max_amount = self.check_cards(cards) * stack/100
+            score = check_cards(cards)
+            oscore = struct['score']
+            sys.stderr.write("\n\n### Old Score: " + str(oscore) + " New Score: " + str(score))
+            if oscore < score:
+                try:
+                    with open("foo", "w") as f:
+                        f.write(json.dumps({'score':score}))
+                except:
+                    pass
+            else:
+                minimum_raise = 0
+            max_amount = score * stack/100
             sys.stderr.write("\n\n### Going to a max of " + str(max_amount) + "\n\n")
             if max_amount >= current_buy_in - players[index]['bet'] + minimum_raise:
                 sys.stderr.write("\n\n### We want to do it and have to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
