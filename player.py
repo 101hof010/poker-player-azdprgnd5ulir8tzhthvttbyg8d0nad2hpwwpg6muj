@@ -1,4 +1,5 @@
 import sys
+import time
 class Player:
     VERSION = "Default Python folding player"
 
@@ -33,6 +34,7 @@ class Player:
                     return current_buy_in - players[0]['bet'] + minimum_raise
                 else:
                     sys.stderr.write("\n\n### We can't set\n\n")
+                    time.sleep(20)
                     return 0
         except Exception as e:
             sys.stderr.write("\n\n### There was a Problem: " + str(e) + "\n\n")
