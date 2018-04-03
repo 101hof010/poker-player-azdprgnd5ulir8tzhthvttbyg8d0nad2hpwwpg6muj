@@ -116,10 +116,10 @@ class Player:
         sys.stderr.write("\n\n### tmp = " + str(tmp) + "\n\n")
         for i in range(1, len(tmp) - 1):
             if tmp[i] == temp + 1:
-                sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + "\n\n")
+                sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
                 temp += 1
             else:
-                sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + "No mach. \n\n")
+                sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
                 temp = -1
         if temp != -1:
             sys.stderr.write("\n\n### Straight \n\n")
