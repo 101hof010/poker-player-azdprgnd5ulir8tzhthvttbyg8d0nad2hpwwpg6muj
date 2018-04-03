@@ -19,7 +19,7 @@ class Player:
             #else:
             #    return 0
             minimum_raise = 0
-            max_init_raise = stack
+            max_init_raise = 4
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
