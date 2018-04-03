@@ -2,9 +2,11 @@ import sys
 import time
 class Player:
     VERSION = "Vroomfondel"
+    COUNTER = 1
 
     def betRequest(self, game_state):
-        sys.stderr.write("\n\n### Doing a turn.\n\n")
+        self.COUNTER += 1
+        sys.stderr.write("\n\n### Doing a turn. COUNTER: " + str(self.COUNTER) + "\n\n")
         sys.stderr.write("\n\nData: " + str(game_state) + "\n\n")
         try:
             current_buy_in = game_state['current_buy_in']
