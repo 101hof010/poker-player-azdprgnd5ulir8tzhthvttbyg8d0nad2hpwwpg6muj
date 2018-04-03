@@ -4,7 +4,6 @@ class Player:
     VERSION = "Vroomfondel"
 
     def betRequest(self, game_state):
-        sys.stderr.write("\n\n### Doing a turn. COUNTER: " + str(self.COUNTER) + "\n\n")
         sys.stderr.write("\n\nData: " + str(game_state) + "\n\n")
         try:
             current_buy_in = game_state['current_buy_in']
