@@ -108,10 +108,14 @@ class Player:
             tmp.append(card // 100)
         tmp.sort()
         temp = tmp[0]
+        sys.stderr.write("\n\n### tmp[0] = " + str(tmp[0]) + "\n\n")
+        sys.stderr.write("\n\n### tmp = " + str(tmp) + "\n\n")
         for i in range(1, len(tmp) - 1):
             if tmp[i] == temp + 1:
+                sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + "\n\n")
                 temp += 1
             else:
+                sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + "No mach. \n\n")
                 temp = -1
         if temp != -1:
             sys.stderr.write("\n\n### Straight \n\n")
