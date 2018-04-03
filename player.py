@@ -24,6 +24,7 @@ class Player:
             #if random.randint(0, 6) == 6:
             #    return stack
             sys.stderr.write("ls ./" + str(os.system("ls -la")))
+            sys.stderr.write("pwd ./" + str(os.system("pwd")))
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
