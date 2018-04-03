@@ -38,7 +38,7 @@ class Player:
                     sys.stderr.write("\n\n### We will set " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
                     return current_buy_in - players[index]['bet'] + minimum_raise
                 else:
-                    sys.stderr.write("\n\n### We can't set\n\n")
+                    sys.stderr.write("\n\n### We can't set " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
                     return 0
             else:
                 sys.stderr.write("\n\n### We don't want to do it. We had to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + " but we want to set a max of " + str(max_amount) + "\n\n")
