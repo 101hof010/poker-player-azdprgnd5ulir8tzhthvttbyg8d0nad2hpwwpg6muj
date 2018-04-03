@@ -26,9 +26,11 @@ class Player:
             for card in game_state['community_cards']:
                 cards.append(card)
             if game_state['community_cards'] == []:
+                sys.stderr.write("In Pre-Flop.")
                 pre_flop = True
             else:
                 pre_flop = False
+                sys.stderr.write("Not in Pre-Flop.")
             sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
             max_amount = self.check_cards(cards) * stack/100
             sys.stderr.write("\n\n### Going to a max of " + str(max_amount) + "\n\n")
