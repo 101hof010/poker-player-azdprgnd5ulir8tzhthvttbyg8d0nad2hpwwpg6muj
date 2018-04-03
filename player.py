@@ -9,7 +9,11 @@ class Player:
             players = game_state['players']
             minimum_raise = game_state['minimum_raise']
             stack = game_state['players'][0]['stack']
-            if stack > current_buy_in - players[0][bet] + minimum_raise + 42:
+            index = 0
+            for i in range(0, len(players)):
+                if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
+                    index = i
+            if stack > current_buy_in - players[index]['bet'] + minimum_raise + 42:
                 sys.stderr.write("### We can set " + str(current_buy_in - players[0]['bet'] + minimum_raise + 42))
                 #return current_buy_in - players[0]['bet'] + minimum_raise + 42
             else:
