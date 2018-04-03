@@ -28,7 +28,7 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            max_amount = self.check_cards(cards) * stack/100
+            max_amount = self.check_cards(cards) * stack/100 + 300
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
