@@ -28,7 +28,8 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            max_amount = self.check_cards(cards) * stack/100 + stack/4
+            max_amount = self.check_cards(cards) * stack/100 + stack/2
+            sys.stderr.write("\n\n### Going to a max of " + str(max_amount) + "\n\n")
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
@@ -38,7 +39,7 @@ class Player:
                     sys.stderr.write("\n\n### We can't set\n\n")
                     return 0
             else:
-                sys.stderr.write("\n\n### We don't want to do it. We had to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + " but wo want to set a max of " + str(max_amount) + "\n\n")
+                sys.stderr.write("\n\n### We don't want to do it. We had to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + " but we want to set a max of " + str(max_amount) + "\n\n")
                 return 0
 
         except Exception as e:
@@ -207,7 +208,7 @@ class Player:
         except:
             temp = -1
         if temp != -1:
-            sys.stderr.write("\n\n### Straight Flush\n\n")
+            sys.stderr.write("\n\n### Royal Flush\n\n")
             nscore = 100
         if nscore > score:
             score = nscore
