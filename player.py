@@ -28,7 +28,7 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            sys.stderr.write("\n\n### Currently, we have " + str(stock) + " Coins.\n\n")
+            sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
             max_amount = self.check_cards(cards) * stack/100
             sys.stderr.write("\n\n### Going to a max of " + str(max_amount) + "\n\n")
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise or pre_flop:
