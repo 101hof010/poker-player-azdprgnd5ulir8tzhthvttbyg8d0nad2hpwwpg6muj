@@ -78,6 +78,8 @@ class Player:
         for rank in amount:
             if amount[rank] > number:
                 number = amount[rank]
+        if number == 1:
+            nscore = 1
         if number == 2:
             nscore = 10
         elif number == 3:
