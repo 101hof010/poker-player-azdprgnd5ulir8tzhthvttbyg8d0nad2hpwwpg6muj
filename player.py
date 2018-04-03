@@ -10,11 +10,11 @@ class Player:
             current_buy_in = game_state['current_buy_in']
             players = game_state['players']
             minimum_raise = game_state['minimum_raise']
-            stack = game_state['players'][0]['stack']
             index = 0
             for i in range(0, len(players)):
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
+            stack = game_state['players'][index]['stack']
             #if stack > current_buy_in - players[index]['bet'] + minimum_raise:
             #    return stack/2
             #else:
