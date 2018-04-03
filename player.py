@@ -19,7 +19,7 @@ class Player:
             #    return stack/2
             #else:
             #    return 0
-            #return random.randint(0, stack)
+            return random.randint(0, stack)
             #if random.randint(0, 6) == 6:
             #    return stack
             cards = []
