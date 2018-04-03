@@ -16,7 +16,7 @@ class Player:
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
             if stack > current_buy_in - players[index]['bet'] + minimum_raise:
-                return stack
+                return stack/2
             else:
                 return 0
             cards = []
