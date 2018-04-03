@@ -34,7 +34,7 @@ class Player:
     def showdown(self, game_state):
         pass
 
-    def check_cards(a_cards):
+    def check_cards(self, a_cards):
         """
             a_cards: 1st and 2nd cards are own cards,
             other cards are open cards
