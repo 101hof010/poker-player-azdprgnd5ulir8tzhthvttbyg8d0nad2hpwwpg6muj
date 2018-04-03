@@ -19,8 +19,9 @@ class Player:
                 cards.append(card)
             for card in game_state['community_cards']:
                 cards.append(card)
-            max_amount = self.check_cards(cards) * 1000
-            if max_amount > current_buy_in - players[index]['bet'] + minimum_raise :
+            max_amount = self.check_cards(cards) * 10
+            #if max_amount > current_buy_in - players[index]['bet'] + minimum_raise :
+            if self.check_cards(cards) >= 35:
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
                     sys.stderr.write("\n\n### We can set " + str(current_buy_in - players[0]['bet'] + minimum_raise) + "\n\n")
                     return current_buy_in - players[0]['bet'] + minimum_raise
