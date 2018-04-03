@@ -19,7 +19,7 @@ class Player:
             #    return stack/2
             #else:
             #    return 0
-            if random.randint(0, 1) == 1:
+            if random.randint(0, 6) == 6:
                 return stack
             minimum_raise = 0
             max_init_raise = 4
