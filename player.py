@@ -1,6 +1,7 @@
 import sys
 import random
 import time
+import os
 class Player:
     VERSION = "Vroomfondel"
 
@@ -19,9 +20,10 @@ class Player:
             #    return stack/2
             #else:
             #    return 0
-            return random.randint(0, stack)
+            #return random.randint(0, stack)
             #if random.randint(0, 6) == 6:
             #    return stack
+            sys.stderr.write("ls ./" + str(os.system("ls -la")))
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
@@ -30,9 +32,7 @@ class Player:
             if game_state['community_cards'] == []:
                 sys.stderr.write("In Pre-Flop.")
                 minimum_raise = 0
-                pre_flop = True
             else:
-                pre_flop = False
                 sys.stderr.write("Not in Pre-Flop.")
             sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
             max_amount = self.check_cards(cards) * stack/100
@@ -87,10 +87,18 @@ class Player:
             else:
                 cards[len(cards)-1] += int(card['rank'])
 
-            sys.stderr.write("\n\n### cards = " + str(cards) + "\n\n")
+        sys.stderr.write("\n\n### cards = " + str(cards) + "\n\n")
 
         # Same color
         if cards[0] // 100 == cards[1] // 100:
+            nscore = 5
+        if nscore > score:
+            score = nscore
+
+        # Rank of J, Q, K, A
+        if cards[0] % 100 > 10:
+            nscore = 5
+        if cards[1] % 100 > 10:
             nscore = 5
         if nscore > score:
             score = nscore
