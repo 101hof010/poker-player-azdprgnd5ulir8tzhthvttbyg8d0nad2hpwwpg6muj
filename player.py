@@ -200,12 +200,10 @@ class Player:
         try:
             for i in range(0, 5):
                 if tmp[i] == temp + 1 and cards[i] // 100 == suit:
-                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
                     temp += 1
                     if temp == 15:
                         temp = 2
                 else:
-                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
                     temp = -1
         except:
             temp = -1
