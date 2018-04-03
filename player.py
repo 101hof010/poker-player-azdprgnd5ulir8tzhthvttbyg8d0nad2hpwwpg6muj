@@ -32,9 +32,9 @@ class Player:
             max_amount = self.check_cards(cards) * stack/100
             sys.stderr.write("\n\n### Going to a max of " + str(max_amount) + "\n\n")
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise or pre_flop:
-                sys.stderr.write("\n\n### We want to do it.\n\n")
+                sys.stderr.write("\n\n### We want to do it and have to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
-                    sys.stderr.write("\n\n### We can set " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
+                    sys.stderr.write("\n\n### We will set " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
                     return current_buy_in - players[index]['bet'] + minimum_raise
                 else:
                     sys.stderr.write("\n\n### We can't set\n\n")
