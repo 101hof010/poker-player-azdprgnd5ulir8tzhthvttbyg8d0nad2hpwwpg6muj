@@ -26,6 +26,7 @@ class Player:
                 cards.append(card)
             if game_state['community_cards'] == []:
                 pre_flop = True
+                minimum_raise = 0
             else:
                 pre_flop = False
             sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
