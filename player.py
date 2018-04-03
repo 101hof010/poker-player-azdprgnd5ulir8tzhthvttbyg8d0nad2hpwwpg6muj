@@ -29,7 +29,6 @@ class Player:
                     struct = json.loads(f.read())
             except:
                 struct = {'score':0}
-            sys.stderr.write("cat foo " + str(os.system("cat foo")))
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
