@@ -20,10 +20,10 @@ class Player:
             for card in game_state['community_cards']:
                 cards.append(card)
             max_amount = self.check_cards(cards) * 120
-            if max_amount > current_buy_in - players[index]['bet'] + minimum_raise + 42:
-                if stack > current_buy_in - players[index]['bet'] + minimum_raise + 42:
-                    sys.stderr.write("\n\n### We can set " + str(current_buy_in - players[0]['bet'] + minimum_raise + 42) + "\n\n")
-                    return current_buy_in - players[0]['bet'] + minimum_raise + 42
+            if max_amount > current_buy_in - players[index]['bet'] + minimum_raise :
+                if stack > current_buy_in - players[index]['bet'] + minimum_raise:
+                    sys.stderr.write("\n\n### We can set " + str(current_buy_in - players[0]['bet'] + minimum_raise) + "\n\n")
+                    return current_buy_in - players[0]['bet'] + minimum_raise
                 else:
                     sys.stderr.write("\n\n### We can't set\n\n")
                     return 0
@@ -43,7 +43,7 @@ class Player:
         """
         score = 20
         cards = []
-        sys.stderr.write("\n\n### At Line 46\n\n")
+        # Calculate the Card-IDs for every card
         for card in a_cards:
             if card['suit'] == 'diamonds':
                 cards.append(100)
@@ -65,7 +65,6 @@ class Player:
                 cards[len(cards)-1] = int(card['rank'])
 
         # Same rank
-        sys.stderr.write("\n\n### At Line 68\n\n")
         amount = {}
         for card in cards:
             if card % 100 not in amount:
@@ -74,7 +73,6 @@ class Player:
                 amount[card % 100] += 1
 
         number = 0
-        sys.stderr.write("\n\n### At Line 77\n\n")
         for rank in amount:
             if amount[rank] > number:
                 number = amount[rank]
