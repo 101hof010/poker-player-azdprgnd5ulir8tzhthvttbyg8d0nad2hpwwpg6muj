@@ -36,11 +36,11 @@ class Player:
                     return current_buy_in - players[0]['bet'] + minimum_raise
                 else:
                     sys.stderr.write("\n\n### We can't set\n\n")
-                    time.sleep(20)
+                    time.sleep(15)
                     return 0
             else:
                 sys.stderr.write("\n\n### We don't want to do it.\n\n")
-                time.sleep(20)
+                time.sleep(15)
                 return 0
 
         except Exception as e:
