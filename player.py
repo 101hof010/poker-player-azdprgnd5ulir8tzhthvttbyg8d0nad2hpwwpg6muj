@@ -5,7 +5,6 @@ class Player:
 
     def betRequest(self, game_state):
         sys.stderr.write("\n\n### Doing a turn.\n\n")
-        return 1000
         sys.stderr.write("\n\nData: " + str(game_state) + "\n\n")
         try:
             current_buy_in = game_state['current_buy_in']
@@ -16,6 +15,7 @@ class Player:
             for i in range(0, len(players)):
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
+            return stack
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
