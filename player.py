@@ -28,7 +28,7 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            max_amount = self.check_cards(cards) * stack/100 + 500
+            max_amount = self.check_cards(cards) * stack/100 + stack/4
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
@@ -36,11 +36,9 @@ class Player:
                     return current_buy_in - players[0]['bet'] + minimum_raise
                 else:
                     sys.stderr.write("\n\n### We can't set\n\n")
-                    time.sleep(15)
                     return 0
             else:
                 sys.stderr.write("\n\n### We don't want to do it. We had to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + " but wo want to set a max of " + str(max_amount) + "\n\n")
-                time.sleep(15)
                 return 0
 
         except Exception as e:
@@ -58,6 +56,7 @@ class Player:
             return a score how good the cards are (between 0 and 100)
         """
         score = 0
+        nscore = 0
         cards = []
         # Calculate the Card-IDs for every card
         for card in a_cards:
@@ -136,10 +135,10 @@ class Player:
 
         # Check for Flush
         nscore = 50
-        tmp = cards[0] % 100
+        tmp = cards[0] // 100
         try:
             for i in range(1, 5):
-                if tmp != cards[i] % 100:
+                if tmp != cards[i] // 100:
                     nscore = 0
         except:
             nscore = 0
