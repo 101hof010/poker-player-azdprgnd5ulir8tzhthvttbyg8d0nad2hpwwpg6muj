@@ -1,7 +1,9 @@
+import sys
 class Player:
     VERSION = "Default Python folding player"
 
     def betRequest(self, game_state):
+        sys.stderr.write("This is a Log-Message.")
         #try:
         #    current_buy_in = game_state['current_buy_in']
         #    players = game_state['players']
