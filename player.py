@@ -18,7 +18,6 @@ class Player:
             #    return stack/2
             #else:
             #    return 0
-            return stack
             minimum_raise = 0
             max_init_raise = 4
             cards = []
