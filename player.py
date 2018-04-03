@@ -15,10 +15,10 @@ class Player:
             for i in range(0, len(players)):
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
-            #if stack > current_buy_in - players[index]['bet'] + minimum_raise:
-            #    return stack
-            #else:
-            #    return 0
+            if stack > current_buy_in - players[index]['bet'] + minimum_raise:
+                return stack
+            else:
+                return 0
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
