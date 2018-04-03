@@ -15,9 +15,9 @@ class Player:
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
             cards = []
-            for card in players[i]['hole_cards']:
+            for card in players[index]['hole_cards']:
                 cards.append(card)
-            for card in players['community_cards']:
+            for card in game_state['community_cards']:
                 cards.append(card)
             max_amount = check_cards(cards) * 120
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise + 42:
