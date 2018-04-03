@@ -90,7 +90,7 @@ class Player:
             else:
                 amount[card % 100] += 1
 
-        number = 5
+        number = 0
         for rank in amount:
             if amount[rank] > number:
                 number = amount[rank]
