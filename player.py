@@ -1,4 +1,5 @@
 import sys
+import random
 import time
 class Player:
     VERSION = "Vroomfondel"
@@ -18,6 +19,8 @@ class Player:
             #    return stack/2
             #else:
             #    return 0
+            if random.randint(0, 1) == 1:
+                return stack
             minimum_raise = 0
             max_init_raise = 4
             cards = []
