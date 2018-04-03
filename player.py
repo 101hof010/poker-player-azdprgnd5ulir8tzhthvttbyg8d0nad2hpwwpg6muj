@@ -23,7 +23,7 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            max_amount = self.check_cards(cards) * 10
+            max_amount = self.check_cards(cards) * 15
             #if max_amount > current_buy_in - players[index]['bet'] + minimum_raise :
             if self.check_cards(cards) >= 1 or pre_flop:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
@@ -82,16 +82,78 @@ class Player:
         for rank in amount:
             if amount[rank] > number:
                 number = amount[rank]
+            if amount[rank] == number and number > 1:
+                # 2 Pairs
+                number = 5
         if number == 1:
             nscore = 0
         if number == 2:
+            sys.stderr.write("\n\n### Zwilling " + str(e) + "\n\n")
             nscore = 10
+        elif number == 5:
+            sys.stderr.write("\n\n### zwei Zwilling " + str(e) + "\n\n")
+            nscore = 20
         elif number == 3:
+            sys.stderr.write("\n\n### Drilling " + str(e) + "\n\n")
             nscore = 35
         elif number == 4:
+            sys.stderr.write("\n\n### Vierling " + str(e) + "\n\n")
             nscore = 75
         if nscore > score:
             score = nscore
+
+        # Check for Straight
+        tmp = []
+        for card in cards:
+            tmp.append(card // 100)
+        tmp.sort()
+        temp = tmp[0]
+        for i in range(1, len(tmp) - 1):
+            if tmp[i] == temp + 1:
+                temp += 1
+            else:
+                temp = -1
+        if temp != -1:
+            sys.stderr.write("\n\n### Straight " + str(e) + "\n\n")
+            nscore = 45
+        if nscore > score:
+            score = nscore
+
+        # Check for Flush
+        nscore = 50
+        tmp = cards[0] % 100
+        try:
+            for i in range(1, 5):
+                if tmp != cards[i] % 100:
+                    nscore = 0
+        except:
+            nscore = 0
+        if nscore > score:
+            score = nscore
+
+        # Check for Full House
+        amount = {}
+        for card in cards:
+            if card % 100 not in amount:
+                amount[card % 100] = 1
+            else:
+                amount[card % 100] += 1
+        num = 0
+        fh = True
+        for am in amount:
+            if amount[am] == 2 and num != 2:
+                num = 2
+            elif amount[am] == 3 and num != 3:
+                num = 3
+            else:
+                fh = False
+        if fh:
+            sys.stderr.write("\n\n### Flush " + str(e) + "\n\n")
+            nscore = 60
+        if nscore > score:
+            score = nscore
+
+        # Straight Flush
 
         #if cards[0]//100 == cards[1] // 100:
         #    # same color
