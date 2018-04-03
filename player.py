@@ -15,10 +15,10 @@ class Player:
             for i in range(0, len(players)):
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
-            if stack > current_buy_in - players[index]['bet'] + minimum_raise:
-                return stack
-            else:
-                return 0
+            #if stack > current_buy_in - players[index]['bet'] + minimum_raise:
+            #    return stack
+            #else:
+            #    return 0
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
@@ -28,7 +28,7 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            max_amount = self.check_cards(cards) * 15
+            max_amount = self.check_cards(cards) * stack/100
             #if max_amount > current_buy_in - players[index]['bet'] + minimum_raise :
             if self.check_cards(cards) >= 1 or pre_flop:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
@@ -41,7 +41,7 @@ class Player:
                     return 0
         except Exception as e:
             sys.stderr.write("\n\n### There was a Problem: " + str(e) + "\n\n")
-            return stack
+            return 123
 
     def showdown(self, game_state):
         pass
@@ -86,15 +86,13 @@ class Player:
             else:
                 amount[card % 100] += 1
 
-        number = 0
+        number = 5
         for rank in amount:
             if amount[rank] > number:
                 number = amount[rank]
             if amount[rank] == number and number > 1:
                 # 2 Pairs
                 number = 5
-        if number == 1:
-            nscore = 0
         if number == 2:
             sys.stderr.write("\n\n### Zwilling \n\n")
             nscore = 10
