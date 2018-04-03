@@ -15,10 +15,10 @@ class Player:
             for i in range(0, len(players)):
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
-            if stack > current_buy_in - players[index]['bet'] + minimum_raise:
-                return stack/2
-            else:
-                return 0
+            #if stack > current_buy_in - players[index]['bet'] + minimum_raise:
+            #    return stack/2
+            #else:
+            #    return 0
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
@@ -28,7 +28,7 @@ class Player:
                 pre_flop = True
             else:
                 pre_flop = False
-            max_amount = self.check_cards(cards) * stack/100 + 300
+            max_amount = self.check_cards(cards) * stack/100 + 500
             if max_amount > current_buy_in - players[index]['bet'] + minimum_raise:
                 sys.stderr.write("\n\n### We want to do it.\n\n")
                 if stack > current_buy_in - players[index]['bet'] + minimum_raise:
