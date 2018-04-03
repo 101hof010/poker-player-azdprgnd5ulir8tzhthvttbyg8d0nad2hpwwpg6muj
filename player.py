@@ -2,10 +2,8 @@ import sys
 import time
 class Player:
     VERSION = "Vroomfondel"
-    COUNTER = 1
 
     def betRequest(self, game_state):
-        self.COUNTER += 1
         sys.stderr.write("\n\n### Doing a turn. COUNTER: " + str(self.COUNTER) + "\n\n")
         sys.stderr.write("\n\nData: " + str(game_state) + "\n\n")
         try:
