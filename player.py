@@ -20,8 +20,8 @@ class Player:
             #else:
             #    return 0
             #return random.randint(0, stack)
-            if random.randint(0, 6) == 6:
-                return stack
+            #if random.randint(0, 6) == 6:
+            #    return stack
             minimum_raise = 0
             max_init_raise = 4
             cards = []
@@ -52,7 +52,7 @@ class Player:
 
         except Exception as e:
             sys.stderr.write("\n\n### There was a Problem: " + str(e) + "\n\n")
-            return 123
+            return 0
 
     def showdown(self, game_state):
         pass
