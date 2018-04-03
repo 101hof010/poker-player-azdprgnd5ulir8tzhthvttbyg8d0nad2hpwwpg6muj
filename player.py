@@ -19,7 +19,7 @@ class Player:
             #    return stack/2
             #else:
             #    return 0
-            return random.randint(0, stack)
+            #return random.randint(0, stack)
             if random.randint(0, 6) == 6:
                 return stack
             minimum_raise = 0
@@ -38,7 +38,7 @@ class Player:
             sys.stderr.write("\n\n### Currently, we have " + str(stack) + " Coins.\n\n")
             max_amount = self.check_cards(cards) * stack/100
             sys.stderr.write("\n\n### Going to a max of " + str(max_amount) + "\n\n")
-            if (max_amount >= current_buy_in - players[index]['bet'] + minimum_raise) or (pre_flop and max_init_raise >= current_buy_in - players[index]['bet'] + minimum_raise):
+            if max_amount >= current_buy_in - players[index]['bet'] + minimum_raise:
                 sys.stderr.write("\n\n### We want to do it and have to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
                 if stack >= current_buy_in - players[index]['bet'] + minimum_raise:
                     sys.stderr.write("\n\n### We will set " + str(current_buy_in - players[index]['bet'] + minimum_raise) + "\n\n")
