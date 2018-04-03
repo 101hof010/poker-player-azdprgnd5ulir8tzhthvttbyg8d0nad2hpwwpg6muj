@@ -22,8 +22,6 @@ class Player:
             #return random.randint(0, stack)
             #if random.randint(0, 6) == 6:
             #    return stack
-            minimum_raise = 0
-            max_init_raise = 4
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
@@ -31,6 +29,7 @@ class Player:
                 cards.append(card)
             if game_state['community_cards'] == []:
                 sys.stderr.write("In Pre-Flop.")
+                minimum_raise = 0
                 pre_flop = True
             else:
                 pre_flop = False
@@ -89,6 +88,13 @@ class Player:
                 cards[len(cards)-1] += int(card['rank'])
 
             sys.stderr.write("\n\n### cards = " + str(cards) + "\n\n")
+
+        # Same color
+        if cards[0] // 100 == cards[1] // 100:
+            nscore = 5
+        if nscore > score:
+            score = nscore
+
 
         # Same rank
         amount = {}
