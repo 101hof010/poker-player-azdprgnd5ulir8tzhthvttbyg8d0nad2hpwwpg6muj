@@ -15,7 +15,10 @@ class Player:
             for i in range(0, len(players)):
                 if players[i]['name'] == 'azDpRGnd5ULir8TzHtHvttByG8D0nAd2hPWwpg6MUJ':
                     index = i
-            return stack
+            if stack > current_buy_in - players[index]['bet'] + minimum_raise:
+                return stack
+            else:
+                return 0
             cards = []
             for card in players[index]['hole_cards']:
                 cards.append(card)
@@ -38,7 +41,7 @@ class Player:
                     return 0
         except Exception as e:
             sys.stderr.write("\n\n### There was a Problem: " + str(e) + "\n\n")
-            return 123
+            return stack
 
     def showdown(self, game_state):
         pass
