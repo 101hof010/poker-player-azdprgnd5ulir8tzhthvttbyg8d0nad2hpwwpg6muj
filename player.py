@@ -43,6 +43,7 @@ class Player:
         """
         score = 20
         cards = []
+        sys.stderr.write("\n\n### At Line 46\n\n")
         for card in a_cards:
             if card['suit'] == 'diamonds':
                 cards.append(100)
@@ -64,6 +65,7 @@ class Player:
                 cards[len(cards)-1] = int(card['rank'])
 
         # Same rank
+        sys.stderr.write("\n\n### At Line 68\n\n")
         amount = {}
         for card in cards:
             if card % 100 not in amount:
@@ -72,6 +74,7 @@ class Player:
                 amount[card % 100] += 1
 
         number = 0
+        sys.stderr.write("\n\n### At Line 77\n\n")
         for rank in amount:
             if amount[rank] > number:
                 number = amount[rank]
