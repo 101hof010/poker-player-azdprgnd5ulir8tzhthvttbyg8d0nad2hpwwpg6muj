@@ -39,7 +39,7 @@ class Player:
                     time.sleep(15)
                     return 0
             else:
-                sys.stderr.write("\n\n### We don't want to do it.\n\n")
+                sys.stderr.write("\n\n### We don't want to do it. We had to set: " + str(current_buy_in - players[index]['bet'] + minimum_raise) + " but wo want to set a max of " + str(max_amount) + "\n\n")
                 time.sleep(15)
                 return 0
 
@@ -121,12 +121,10 @@ class Player:
         try:
             for i in range(1, 5):
                 if tmp[i] == temp + 1:
-                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
                     temp += 1
                     if temp == 15:
                         temp = 2
                 else:
-                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
                     temp = -1
         except:
             temp = -1
@@ -180,12 +178,9 @@ class Player:
         try:
             for i in range(1, 5):
                 if tmp[i] == temp + 1 and cards[i] // 100 == suit:
-                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " match.\n\n")
                     temp += 1
                     if temp == 15:
                         temp = 2
-                else:
-                    sys.stderr.write("\n\n### tmp[" + str(i) + "] = " + str(tmp[i]) + " No match.\n\n")
                     temp = -1
         except:
             temp = -1
