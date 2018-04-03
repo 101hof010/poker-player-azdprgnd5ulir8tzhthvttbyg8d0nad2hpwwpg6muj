@@ -70,6 +70,8 @@ class Player:
             else:
                 cards[len(cards)-1] += int(card['rank'])
 
+            sys.stderr.write("\n\n### cards = " + str(cards) + "\n\n")
+
         # Same rank
         amount = {}
         for card in cards:
