@@ -60,15 +60,15 @@ class Player:
             else:
                 cards.append(400)
             if card['rank'] == 'A':
-                cards[len(cards)-1] = 14
+                cards[len(cards)-1] += 14
             elif card['rank'] == 'K':
-                cards[len(cards)-1] = 13
+                cards[len(cards)-1] += 13
             elif card['rank'] == 'Q':
-                cards[len(cards)-1] = 12
+                cards[len(cards)-1] += 12
             elif card['rank'] == 'J':
-                cards[len(cards)-1] = 11
+                cards[len(cards)-1] += 11
             else:
-                cards[len(cards)-1] = int(card['rank'])
+                cards[len(cards)-1] += int(card['rank'])
 
         # Same rank
         amount = {}
