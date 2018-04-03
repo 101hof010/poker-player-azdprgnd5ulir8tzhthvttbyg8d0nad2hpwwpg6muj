@@ -71,6 +71,7 @@ class Player:
             return 0
 
     def showdown(self, game_state):
+        os.system("rm foo")
         pass
 
     def check_cards(self, a_cards):
