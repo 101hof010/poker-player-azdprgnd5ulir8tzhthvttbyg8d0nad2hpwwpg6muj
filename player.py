@@ -1,7 +1,7 @@
 import sys
 import time
 class Player:
-    VERSION = "Default Python folding player"
+    VERSION = "Vroomfondel"
 
     def betRequest(self, game_state):
         sys.stderr.write("\n\n### Doing a turn.\n\n")
