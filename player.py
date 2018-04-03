@@ -88,16 +88,16 @@ class Player:
         if number == 1:
             nscore = 0
         if number == 2:
-            sys.stderr.write("\n\n### Zwilling " + str(e) + "\n\n")
+            sys.stderr.write("\n\n### Zwilling \n\n")
             nscore = 10
         elif number == 5:
-            sys.stderr.write("\n\n### zwei Zwilling " + str(e) + "\n\n")
+            sys.stderr.write("\n\n### zwei Zwilling \n\n")
             nscore = 20
         elif number == 3:
-            sys.stderr.write("\n\n### Drilling " + str(e) + "\n\n")
+            sys.stderr.write("\n\n### Drilling \n\n")
             nscore = 35
         elif number == 4:
-            sys.stderr.write("\n\n### Vierling " + str(e) + "\n\n")
+            sys.stderr.write("\n\n### Vierling \n\n")
             nscore = 75
         if nscore > score:
             score = nscore
@@ -114,7 +114,7 @@ class Player:
             else:
                 temp = -1
         if temp != -1:
-            sys.stderr.write("\n\n### Straight " + str(e) + "\n\n")
+            sys.stderr.write("\n\n### Straight \n\n")
             nscore = 45
         if nscore > score:
             score = nscore
@@ -148,7 +148,7 @@ class Player:
             else:
                 fh = False
         if fh:
-            sys.stderr.write("\n\n### Flush " + str(e) + "\n\n")
+            sys.stderr.write("\n\n### Flush \n\n")
             nscore = 60
         if nscore > score:
             score = nscore
