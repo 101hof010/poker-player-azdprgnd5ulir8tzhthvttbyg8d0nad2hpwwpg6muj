@@ -15,7 +15,7 @@ class Player:
         #        return 0
         #except Exception as e:
         #    sys.stderr.write("There was a Problem: " + str(e))
-        return 42
+        return 84
 
     def showdown(self, game_state):
         pass
